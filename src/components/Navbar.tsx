@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import NeonGlowButton from "@/components/NeonGlowButton";
 
 
 export default function Navbar(){
@@ -29,20 +31,19 @@ animate={{
 }}
 
 transition={{
-    duration:0.8,
-    ease:"easeOut"
+    duration:0.8
 }}
-
 
 className="
 fixed
 top-6
 left-1/2
 -translate-x-1/2
-z-50
 
-w-[92%]
-max-w-7xl
+z-[9999]
+
+w-[90%]
+max-w-6xl
 
 "
 
@@ -57,18 +58,26 @@ flex
 items-center
 justify-between
 
+
 px-8
 py-4
 
-rounded-3xl
 
-bg-black/50
-backdrop-blur-xl
+rounded-2xl
+
+
+/* Glass Effect */
+
+bg-white/20
+
+backdrop-blur-md
 
 border
-border-yellow-500/20
+border-white/30
 
-shadow-[0_0_40px_rgba(234,179,8,0.12)]
+
+shadow-[0_4px_30px_rgba(0,0,0,0.1)]
+
 
 "
 
@@ -79,46 +88,47 @@ shadow-[0_0_40px_rgba(234,179,8,0.12)]
 {/* LOGO */}
 
 <div
+
 className="
 flex
 items-center
-gap-3
+gap-4
 "
+
 >
 
 
+{/* <Image
+
+src="/images/Logo.png"
+
+alt="NexIOT Logo"
+
+width={50}
+
+height={50}
+
+/> */}
 <div
-
 className="
-
 relative
-
-w-11
-h-11
-
-rounded-2xl
-
-bg-yellow-500
-
-flex
-items-center
-justify-center
-
-text-black
-
-font-black
-text-xl
-
-shadow-[0_0_25px_rgba(234,179,8,0.7)]
-
+w-10
+h-10
+overflow-visible
 "
-
 >
 
-N
+<Image
+  src="/images/Logo.png"
+  alt="NexIOT Logo"
+  fill
+  className="
+  object-contain
+  scale-150
+  "
+/>
 
 </div>
-
 
 
 <div>
@@ -129,12 +139,10 @@ className="
 text-white
 font-bold
 text-xl
-tracking-wider
+tracking-wide
 "
 
 >
-
-NexIOT
 
 </h1>
 
@@ -142,15 +150,13 @@ NexIOT
 <p
 
 className="
-text-yellow-500
+text-yellow-400
 text-[10px]
-tracking-[0.35em]
 uppercase
+tracking-[0.3em]
 "
 
 >
-
-Innovation Summit
 
 </p>
 
@@ -166,7 +172,7 @@ Innovation Summit
 
 
 
-{/* LINKS */}
+{/* NAV LINKS */}
 
 <div
 
@@ -175,7 +181,7 @@ hidden
 md:flex
 
 items-center
-gap-9
+gap-8
 "
 
 >
@@ -190,14 +196,14 @@ links.map((link)=>(
 key={link}
 
 whileHover={{
-    y:-2
+    scale:1.05,
+    color:"#facc15"
 }}
+
 
 className="
 
-relative
-
-text-white/70
+text-white/80
 
 text-sm
 
@@ -205,42 +211,13 @@ font-medium
 
 cursor-pointer
 
-group
+transition
 
 "
 
 >
 
-
 {link}
-
-
-
-<span
-
-className="
-
-absolute
-
-left-0
-
--bottom-2
-
-w-0
-
-h-[2px]
-
-bg-yellow-500
-
-transition-all
-
-group-hover:w-full
-
-"
-
-/>
-
-
 
 </motion.a>
 
@@ -251,46 +228,15 @@ group-hover:w-full
 
 
 
+
+
 {/* REGISTER BUTTON */}
 
-
-<motion.button
-
-whileHover={{
-scale:1.05
-}}
-
-whileTap={{
-scale:0.95
-}}
-
-
-className="
-
-ml-4
-
-px-6
-py-3
-
-rounded-full
-
-bg-yellow-500
-
-text-black
-
-font-semibold
-
-text-sm
-
-shadow-[0_0_25px_rgba(234,179,8,0.5)]
-
-"
-
->
-
-Register
-
-</motion.button>
+<NeonGlowButton
+  label="Register"
+  padding="8px 24px"
+  rounded={100}
+/>
 
 
 
