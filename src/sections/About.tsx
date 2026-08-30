@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import PixelReveal from "@/components/PixelReveal";
 import { motion } from "framer-motion";
 
 
@@ -13,13 +13,31 @@ return (
 
 className="
 relative
-bg-black
 text-white
 
 py-20
 md:py-28
 
-overflow-hidden
+"
+
+
+>
+
+
+{/* GLASS CONTENT BOX */}
+
+<div
+
+className="
+
+container
+
+mx-auto
+
+
+px-5
+md:px-10
+
 
 "
 
@@ -29,33 +47,53 @@ overflow-hidden
 <div
 
 className="
-container
-mx-auto
 
-px-6
-md:px-10
+rounded-3xl
+
+bg-black/50
+
+backdrop-blur-xl
+
+border
+
+border-white/20
+
+
+shadow-[0_0_40px_rgba(168,128,10,0.15)]
+
+
+p-6
+md:p-12
+
 
 grid
 
 grid-cols-1
+
 md:grid-cols-2
+
 
 items-center
 
+
 gap-12
+
 
 "
 
 >
 
 
-{/* LEFT CONTENT */}
+
+
+
+{/* LEFT */}
 
 <motion.div
 
 initial={{
 opacity:0,
-x:-50
+x:-40
 }}
 
 whileInView={{
@@ -85,7 +123,9 @@ md:text-left
 <h2
 
 className="
+
 text-4xl
+
 md:text-5xl
 
 font-bold
@@ -103,6 +143,7 @@ About NexIOT
 <div
 
 className="
+
 mt-3
 
 w-20
@@ -112,11 +153,14 @@ h-1
 bg-yellow-400
 
 mx-auto
+
 md:mx-0
 
 "
 
 />
+
+
 
 
 
@@ -126,22 +170,31 @@ className="
 
 mt-6
 
-text-white/70
+text-white/80
 
 text-base
+
 md:text-lg
 
 leading-relaxed
-
-max-w-xl
 
 "
 
 >
 
-NexIOT is a next-generation IoT innovation platform bringing together technology enthusiasts, developers, and innovators to explore the future of connected systems.
+NexIOT is a next-generation IoT innovation platform bringing together
+
+<span className="text-yellow-400 font-semibold">
+
+ <p>technology enthusiasts, developers, and innovators</p>
+
+</span>
+
+ to explore the future of connected systems.
 
 </p>
+
+
 
 
 
@@ -149,24 +202,88 @@ NexIOT is a next-generation IoT innovation platform bringing together technology
 
 className="
 
-mt-4
+mt-5
 
 text-white/70
 
-text-base
+text-sm
+
 md:text-lg
 
 leading-relaxed
-
-max-w-xl
 
 "
 
 >
 
-Through collaboration and emerging technologies, NexIOT aims to inspire creative solutions and build smarter, connected experiences for the future.
+The Internet of Things continues to reshape industries and communities through
+
+<span className="text-yellow-400 font-semibold">
+
+ connected, data-driven solutions.
+
+</span>
+
+
+Recognizing the importance of IoT skills among students,
+
+<span className="text-yellow-400 font-semibold">
+
+ IET On Campus – NSBM Green University
+
+</span>
+
+ together with
+
+<span className="text-yellow-400 font-semibold">
+
+ Hackathon Hub
+
+</span>
+
+ brings this competition to encourage purposeful technology-driven problem solving.
 
 </p>
+
+
+
+
+<p
+
+className="
+
+mt-5
+
+text-white/70
+
+text-sm
+
+md:text-lg
+
+leading-relaxed
+
+"
+
+>
+
+Participants are encouraged to design IoT solutions aligned with the 
+
+<span className="text-yellow-400 font-semibold">
+
+  United Nations Sustainable Development Goals (SDGs),
+
+</span>
+
+ strengthening creativity,
+
+<span className="text-yellow-400 font-semibold">
+
+ innovation, collaboration, and real-world impact.
+
+</span>
+
+</p>
+
 
 
 
@@ -178,10 +295,10 @@ Through collaboration and emerging technologies, NexIOT aims to inspire creative
 
 
 
-{/* RIGHT IMAGE */}
+
+{/* IMAGE */}
 
 <motion.div
-
 
 initial={{
 opacity:0,
@@ -208,13 +325,17 @@ relative
 
 w-full
 
-h-[300px]
+h-[280px]
+
+sm:h-[350px]
 
 md:h-[450px]
+
 
 rounded-3xl
 
 overflow-hidden
+
 
 border
 
@@ -225,37 +346,23 @@ border-white/20
 >
 
 
-<Image
+<PixelReveal
 
-src="/images/about.png"
+imageSrc="/images/image.png"
 
-alt="About NexIOT"
+gridSize={18}
 
-fill
+transitionColor="#000000"
 
-className="
+edgeHeight={20}
 
-object-cover
+direction="left"
 
-"
-
-/>
-
-
-
-{/* overlay */}
-
-<div
-
-className="
-
-absolute
-
-inset-0
-
-bg-black/30
-
-"
+transition={{
+type:"tween",
+duration:2,
+ease:"easeInOut"
+}}
 
 />
 
@@ -264,11 +371,15 @@ bg-black/30
 
 
 
+
+
+</div>
+
+
 </div>
 
 
 </section>
-
 
 )
 
